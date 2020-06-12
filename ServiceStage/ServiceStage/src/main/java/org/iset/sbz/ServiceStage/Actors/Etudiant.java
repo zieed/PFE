@@ -31,7 +31,10 @@ public class Etudiant {
 	@NonNull
 	@ManyToOne
 	private Stage stage;
-	
+
+	public Etudiant(int id2, String nom2, String prenom2, int cin2, String email2, String dep2, String cls2, int num2) {
+		// TODO Auto-generated constructor stub
+	}
 	public int getId() {
 		return id;
 	}

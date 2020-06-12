@@ -1,0 +1,22 @@
+package org.iset.sbz.ServiceStage;
+
+import org.iset.sbz.ServiceStage.Actors.Etudiant;
+import org.iset.sbz.ServiceStage.repositories.EtudiantRep;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+
+public class DbSeeder implements CommandLineRunner{
+   @Autowired
+	private EtudiantRep etudiantRep;
+    
+	@Override
+	public void run(String... args) throws Exception {
+		Etudiant zied = new Etudiant(1,"horbit","zied",11611871,"horbit.zied@gmail.com","Technologie Informatique","MDW3",99946281);
+		
+		this.etudiantRep.deleteAll();
+		this.etudiantRep.save(zied);
+	}
+	
+	
+
+}

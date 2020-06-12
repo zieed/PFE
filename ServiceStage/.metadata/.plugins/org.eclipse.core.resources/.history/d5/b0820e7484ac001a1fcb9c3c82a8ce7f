@@ -1,0 +1,20 @@
+package org.iset.sbz.ServiceStage.services;
+
+import org.iset.sbz.ServiceStage.Actors.Etudiant;
+import org.iset.sbz.ServiceStage.repositories.EtudiantRep;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+@Service
+public class EtudiantServices {
+	@Autowired
+	private EtudiantRep etudiantRep;
+	
+	public void SupprimerEtud(Integer id) {
+		etudiantRep.deleteById(id);
+		
+	}
+	public Etudiant enregistrerEtudiant(Etudiant etudiant) {
+		
+		return etudiantRep.save(etudiant);
+	}
+}

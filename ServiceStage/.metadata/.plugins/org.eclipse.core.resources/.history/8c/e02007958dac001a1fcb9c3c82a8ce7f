@@ -1,0 +1,33 @@
+package org.iset.sbz.ServiceStage.controllers;
+
+import org.iset.sbz.ServiceStage.repositories.EtudiantRep;
+import org.iset.sbz.ServiceStage.services.EtudiantServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class EtudController {
+	@Autowired
+	private EtudiantRep etudiantRep;
+	@Autowired
+	private EtudiantServices etudiantServices;
+	@GetMapping(value = "/Etudiant")
+	public String EtudList(Model model) {
+		model.addAttribute("listeEtudiant", etudiantRep.findAll());
+		return "etudiantslist";
+		
+	}
+	@GetMapping(value="delete")
+	public String supprimerProduit(
+			@RequestParam(name="id")Integer id) {
+		etudiantServices.SupprimerEtud(id);		
+		return "redirect:/etudiantlist";
+	}
+	
+
+	
+
+}

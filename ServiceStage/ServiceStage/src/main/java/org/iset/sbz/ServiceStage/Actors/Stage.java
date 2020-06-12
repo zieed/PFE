@@ -23,7 +23,7 @@ public class Stage {
 	@NonNull
 	@OneToMany
 	private Etudiant etudiant;
-	@NonNull
+	
 	@OneToMany
 	private Soutenance soutenance;
 	
