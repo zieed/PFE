@@ -1,0 +1,34 @@
+package org.iset.sbz.ServiceStage;
+
+import org.iset.sbz.ServiceStage.models.Enseignant;
+import org.iset.sbz.ServiceStage.models.Etudiant;
+import org.iset.sbz.ServiceStage.models.Stage;
+import org.iset.sbz.ServiceStage.repositories.EtudiantRep;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+@Component
+public class DbSeeder implements CommandLineRunner{
+   
+	private EtudiantRep etudiantRep;
+    
+	public DbSeeder(EtudiantRep etudiantRep) {
+		super();
+		this.etudiantRep = etudiantRep;
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		Etudiant zied = new Etudiant(1,"horbit","zied",11611871,"horbit.zied@gmail.com","Technologie Informatique","MDW3",99946281,stagez);
+		Enseignant ens =new Enseignant(111, "Maatoug", "Nizar", "Nizar.Maatoug@gmail.com", "Technologie Informatique", "Encadreur", stagez, soutenance)
+		Stage stagez = new Stage(11,"INITIATION","apppp","Steg",zied);
+		
+
+		this.etudiantRep.deleteAll();
+		this.etudiantRep.save(zied);
+
+	}
+	
+	
+
+}

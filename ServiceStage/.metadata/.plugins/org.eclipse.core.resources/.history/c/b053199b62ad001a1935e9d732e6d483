@@ -1,0 +1,13 @@
+package org.iset.sbz.ServiceStage.repositories;
+
+import java.util.List;
+
+import org.iset.sbz.ServiceStage.models.Resultat;
+import org.iset.sbz.ServiceStage.models.Stage;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface StageRep extends JpaRepository<Stage, Integer>{
+	List<Stage> findAll();
+}

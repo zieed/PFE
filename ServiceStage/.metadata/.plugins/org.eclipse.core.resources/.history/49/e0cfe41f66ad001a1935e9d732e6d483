@@ -1,0 +1,99 @@
+package org.iset.sbz.ServiceStage.models;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import javax.persistence.OneToOne;
+
+import lombok.NonNull;
+
+@Entity
+public class Stage {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	@NonNull
+	private Type typ;
+	@NonNull
+	private String sujet;
+	@NonNull
+	private String place;
+	
+	@NonNull
+	@ManyToOne
+	@JoinColumn(name="etudiant_id")
+	private Etudiant etudiant;
+	@ManyToOne
+	private Enseignant encadreur;
+	
+	@OneToOne
+	private Soutenance soutenance;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Type getTyp() {
+		return typ;
+	}
+
+	public void setTyp(Type typ) {
+		this.typ = typ;
+	}
+
+	public String getSujet() {
+		return sujet;
+	}
+
+	public void setSujet(String sujet) {
+		this.sujet = sujet;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public Etudiant getEtudiant() {
+		return etudiant;
+	}
+
+	public void setEtudiant(Etudiant etudiant) {
+		this.etudiant = etudiant;
+	}
+
+	public Soutenance getSoutenance() {
+		return soutenance;
+	}
+
+	public void setSoutenance(Soutenance soutenance) {
+		this.soutenance = soutenance;
+	}
+
+	public Stage(Integer id, @NonNull Type typ, @NonNull String sujet, @NonNull String place,
+			@NonNull Etudiant etudiant, Soutenance soutenance) {
+		super();
+		this.id = id;
+		this.typ = typ;
+		this.sujet = sujet;
+		this.place = place;
+		this.etudiant = etudiant;
+		this.soutenance = soutenance;
+	}
+	
+	
+	
+	
+
+}

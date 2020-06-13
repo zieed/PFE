@@ -1,29 +1,77 @@
 package org.iset.sbz.ServiceStage;
 
-import org.iset.sbz.ServiceStage.Actors.Etudiant;
-import org.iset.sbz.ServiceStage.repositories.EtudiantRep;
+import java.util.Arrays;
 
+
+import org.iset.sbz.ServiceStage.models.Enseignant;
+import org.iset.sbz.ServiceStage.models.Etudiant;
+import org.iset.sbz.ServiceStage.models.Resultat;
+import org.iset.sbz.ServiceStage.models.Soutenance;
+import org.iset.sbz.ServiceStage.models.Stage;
+import org.iset.sbz.ServiceStage.repositories.EnseignantRep;
+import org.iset.sbz.ServiceStage.repositories.EtudiantRep;
+import org.iset.sbz.ServiceStage.repositories.ResultatRep;
+import org.iset.sbz.ServiceStage.repositories.SoutenanceRep;
+import org.iset.sbz.ServiceStage.repositories.StageRep;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
 @Component
 public class DbSeeder implements CommandLineRunner{
-   
-	private EtudiantRep etudiantRep;
     
-	public DbSeeder(EtudiantRep etudiantRep) {
+	private EtudiantRep etudiantRep;
+	private EnseignantRep enseignantRep;
+	private StageRep stageRep;
+	private ResultatRep resultatRep;
+	private SoutenanceRep soutenanceRep;
+	public Etudiant zied;
+    public Enseignant enc;
+    public Enseignant jur;
+    public Stage stagez;
+    public Soutenance sout;
+    public Resultat res;
+    
+
+	public DbSeeder(EtudiantRep etudiantRep, EnseignantRep enseignantRep, StageRep stageRep, ResultatRep resultatRep) {
 		super();
 		this.etudiantRep = etudiantRep;
+		this.enseignantRep = enseignantRep;
+		this.stageRep = stageRep;
+		this.resultatRep = resultatRep;
 	}
+
+
+
+
 
 	@Override
 	public void run(String... args) throws Exception {
-		Etudiant zied = new Etudiant(1,"horbit","zied",11611871,"horbit.zied@gmail.com","Technologie Informatique","MDW3",99946281);
-		Etudiant rakia = new Etudiant(2,"chebbi","rakia",11611571,"chebbi.rakia@gmail.com","Technologie Informatique","MDW3",28456281);
-		Etudiant noura = new Etudiant(3,"hamdouni","noura",11611920,"noura.hamdouni@gmail.com","Technologie Informatique","MDW3",55546281);
-		this.etudiantRep.deleteAll();
-		this.etudiantRep.save(zied);
-		this.etudiantRep.save(rakia);
-		this.etudiantRep.save(noura);
+		
+		 zied = new Etudiant(1,"horbit","zied",11611871,"horbit.zied@gmail.com","Technologie Informatique","MDW3",99946281,Arrays.asList(stagez));
+		 enc =new Enseignant(11, "Maatoug", "Nizar", "Nizar.maatoug@gmail.com", "Technologie Informatique", "Encadreur", Arrays.asList(stagez),Arrays.asList(sout));
+		 jur =new Enseignant(111, "Barhoumi", "Samir", "samir.barhoumi@gmail.com", "Technologie Informatique", "Président",Arrays.asList(stagez),Arrays.asList(sout));
+	     stagez = new Stage(12,"INITIATION", "aaaaaaaaa", "Steg", zied, enc, sout);
+		 sout= new Soutenance(1111,"28/07/2020", res, stagez, Arrays.asList(jur));
+		 res = new Resultat(122, 18.5, "Excellent", sout);
+		 etudiantRep.deleteAll();
+		 enseignantRep.deleteAll();
+		 etudiantRep.deleteAll();
+		 resultatRep.deleteAll();
+		 soutenanceRep.deleteAll();
+		 stageRep.deleteAll();
+		 etudiantRep.save(zied);
+		 stageRep.save(stagez);
+		 enseignantRep.save(enc);
+		 enseignantRep.save(jur);
+		 soutenanceRep.save(sout);
+		 resultatRep.save(res);
+		 		 
+		
+				
+		
+
+
+
 	}
 	
 	

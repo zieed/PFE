@@ -1,4 +1,4 @@
-content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Enum"><rhs name\="javax.persistence.GenerationType"/></lhs></history>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Enum"><rhs name\="javax.persistence.GenerationType"/></lhs><lhs name\="org.iset.sbz.ServiceStage.models.Stage"><rhs name\="org.iset.sbz.ServiceStage.models.Stage"/></lhs><lhs name\="org.iset.sbz.ServiceStage.models.Enseignant"><rhs name\="org.iset.sbz.ServiceStage.models.Enseignant"/></lhs><lhs name\="org.iset.sbz.ServiceStage.models.Soutenance"><rhs name\="org.iset.sbz.ServiceStage.models.Soutenance"/></lhs><lhs name\="org.iset.sbz.ServiceStage.models.Resultat"><rhs name\="org.iset.sbz.ServiceStage.models.Resultat"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.util.Date"/></lhs><lhs name\="java.util.Date"><rhs name\="java.util.Date"/></lhs></history>
 content_assist_number_of_computers=17
 content_assist_proposals_background=255,255,255
 content_assist_proposals_foreground=0,0,0

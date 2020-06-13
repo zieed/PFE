@@ -1,0 +1,112 @@
+package org.iset.sbz.ServiceStage.models;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+import lombok.NonNull;
+
+
+@Entity
+public class Etudiant {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	@NonNull
+	private String nom;
+	@NonNull
+	private String prenom;
+	@NonNull
+	private Integer cin;
+	@NonNull
+	private String Email;
+	@NonNull
+	private String dep;
+	@NonNull
+	private String cls;
+	@NonNull
+	private Integer num;
+	@NonNull
+	@OneToMany
+	private List<Stage> stage;
+
+	public Etudiant(Integer id, @NonNull String nom, @NonNull String prenom, @NonNull Integer cin,
+			@NonNull String email, @NonNull String dep, @NonNull String cls, @NonNull Integer num,
+			@NonNull List<Stage> stage) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.cin = cin;
+		Email = email;
+		this.dep = dep;
+		this.cls = cls;
+		this.num = num;
+		this.stage = stage;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public int getCin() {
+		return cin;
+	}
+	public void setCin(Integer cin) {
+		this.cin = cin;
+	}
+	public String getEmail() {
+		return Email;
+	}
+	public void setEmail(String email) {
+		Email = email;
+	}
+	public String getDep() {
+		return dep;
+	}
+	public void setDep(String dep) {
+		this.dep = dep;
+	}
+	public String getCls() {
+		return cls;
+	}
+	public void setCls(String cls) {
+		this.cls = cls;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(Integer num) {
+		this.num = num;
+	}
+	public List<Stage> getStage() {
+		return stage;
+	}
+	public void setStage(List<Stage> stage) {
+		this.stage = stage;
+	}
+
+	
+	
+	
+	
+
+}
