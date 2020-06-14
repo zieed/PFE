@@ -16,14 +16,20 @@ div class="card-block">
 							<th>ID</th>
 							<th>Nom</th>
 							<th>Prenom</th>
-							<th></th>
+							<th>Cin</th>
+							<th>Email</th>
+							<th>Departement</th>
+							<th>Classes</th>
+							<th>Num</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="etudiant:${listeEtudiant}">
+						<tr th:each="etudiant:${listEtuds}">
 							<td th:text="${etudiant.id}"></td>
 							<td th:text="${etudiant.nom}"></td>
 							<td th:text="${etudiant.prenom}"></td>
+							<td th:text="${etudiant.cin}"></td>
+							<td th:text="${etudiant.email}"></td>
 							<td th:text="${etudiant.dep}"></td>
 							<td th:text="${etudiant.cls}"></td>
 							<td th:text="${etudiant.num}"></td>
@@ -33,7 +39,14 @@ div class="card-block">
 				</table>
 
 			</div>
-			
+						<nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<li th:each="etudiant,status:${tot}"
+						th:class="${cuurp==status.etudslist}?'page-item active':'page-item'"><a
+						th:text="${status.etudslist+1}"
+						th:href="@{/index(page=${status.etudslist})}" class="page-link"></a></li>
+				</ul>
+			</nav>
 
 		</div>
 
